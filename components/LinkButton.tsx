@@ -6,6 +6,7 @@ function LinkButton({ className, ...props }: React.ComponentProps<typeof Link>) 
     <Link
       {...props}
       className={`${buttonVariants()} ${className}`}
+      prefetch={false}
     />
   );
 }
