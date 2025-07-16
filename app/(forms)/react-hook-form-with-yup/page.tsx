@@ -147,7 +147,7 @@ function Page() {
                     value="male"
                   />
                   <Label
-                    className="pl-2"
+                    className="pl-2 cursor-pointer"
                     htmlFor="male"
                   >
                     Male
@@ -159,7 +159,7 @@ function Page() {
                     value="female"
                   />
                   <Label
-                    className="pl-2"
+                    className="pl-2 cursor-pointer"
                     htmlFor="female"
                   >
                     Female
@@ -184,7 +184,12 @@ function Page() {
             name="acceptedTerms"
             render={({ field }) => (
               <>
-                <Label htmlFor={field.name}>Accept Terms</Label>
+                <Label
+                  className="cursor-pointer"
+                  htmlFor={field.name}
+                >
+                  Accept Terms
+                </Label>
                 <Switch
                   {...field}
                   checked={field.value}

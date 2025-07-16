@@ -148,7 +148,7 @@ function FormDemo() {
               value="male"
             />
             <Label
-              className="pl-2"
+              className="pl-2 cursor-pointer"
               htmlFor="male"
             >
               Male
@@ -160,7 +160,7 @@ function FormDemo() {
               value="female"
             />
             <Label
-              className="pl-2"
+              className="pl-2 cursor-pointer"
               htmlFor="female"
             >
               Female
@@ -176,7 +176,12 @@ function FormDemo() {
 
       <div>
         <div className="flex items-center justify-between">
-          <Label htmlFor={FormFieldEnum.ACCEPTED_TERMS}>Accept Terms</Label>
+          <Label
+            className="cursor-pointer"
+            htmlFor={FormFieldEnum.ACCEPTED_TERMS}
+          >
+            Accept Terms
+          </Label>
           <Switch
             checked={formData.acceptedTerms}
             className="cursor-pointer"

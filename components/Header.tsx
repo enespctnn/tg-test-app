@@ -8,7 +8,7 @@ function Header() {
         <ul className="flex items-center justify-center gap-2">
           <li>
             <LinkButton href="/">
-              <Home />
+              <Home /> Home
             </LinkButton>
           </li>
           <li>
