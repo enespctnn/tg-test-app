@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
+import type { VariantProps } from 'class-variance-authority';
 
-function LinkButton({ className, ...props }: React.ComponentProps<typeof Link>) {
+interface LinkButtonProps extends React.ComponentProps<typeof Link>, VariantProps<typeof buttonVariants> {}
+
+function LinkButton({ className = '', variant, size, ...props }: LinkButtonProps) {
   return (
     <Link
       {...props}
-      className={`${buttonVariants()} ${className}`}
+      className={buttonVariants({ variant, size, className })}
       prefetch={false}
     />
   );

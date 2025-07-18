@@ -1,4 +1,4 @@
-import { Home } from 'lucide-react';
+import { DockIcon, Home } from 'lucide-react';
 import LinkButton from '@/components/LinkButton';
 
 function Header() {
@@ -12,15 +12,9 @@ function Header() {
             </LinkButton>
           </li>
           <li>
-            <LinkButton href="/custom-form">Custom Form</LinkButton>
-          </li>
-
-          <li>
-            <LinkButton href="/react-hook-form">React Hook Form</LinkButton>
-          </li>
-
-          <li>
-            <LinkButton href="/react-hook-form-with-yup">React Hook Form With Yup</LinkButton>
+            <LinkButton href="/custom-form">
+              <DockIcon /> Forms
+            </LinkButton>
           </li>
         </ul>
       </nav>

@@ -29,7 +29,7 @@ export default function RootLayout({
       lang="en"
     >
       <body className={`${geistSans.variable} ${geistMono.variable} flex min-w-full min-h-dvh antialiased`}>
-        <main className="relative grow flex flex-col pt-8 gap-10">
+        <main className="relative grow flex flex-col pt-8 gap-4">
           <Header />
           {children}
         </main>
