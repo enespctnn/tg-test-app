@@ -200,6 +200,7 @@ function FormDemo() {
       <Button
         className="w-full"
         type="submit"
+        variant="secondary"
       >
         Submit
       </Button>

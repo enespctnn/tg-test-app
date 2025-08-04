@@ -10,14 +10,14 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
-import { userAgreementSchema } from '@/schemas/userAgreement.schema';
+import { type TUserAgreementSchema, userAgreementSchema } from '@/schemas/userAgreement.schema';
 
 function Page() {
   const {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm({
+  } = useForm<TUserAgreementSchema>({
     mode: 'all',
     defaultValues: {
       email: '',
@@ -37,7 +37,7 @@ function Page() {
       onSubmit={handleSubmit(() => {})}
     >
       <div className="flex flex-col gap-2">
-        <Controller
+        <Controller<TUserAgreementSchema, 'email'>
           control={control}
           name="email"
           render={({ field }) => (
@@ -59,7 +59,7 @@ function Page() {
         </p>
       </div>
 
-      <Controller
+      <Controller<TUserAgreementSchema, 'password'>
         control={control}
         name="password"
         render={({ field }) => (
@@ -93,7 +93,7 @@ function Page() {
       />
 
       <div className="flex flex-col gap-2">
-        <Controller
+        <Controller<TUserAgreementSchema, 'plan'>
           control={control}
           name="plan"
           render={({ field }) => (
@@ -129,7 +129,7 @@ function Page() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <Controller
+        <Controller<TUserAgreementSchema, 'gender'>
           control={control}
           name="gender"
           render={({ field }) => (
@@ -179,7 +179,7 @@ function Page() {
 
       <div>
         <div className="flex items-center justify-between">
-          <Controller
+          <Controller<TUserAgreementSchema, 'acceptedTerms'>
             control={control}
             name="acceptedTerms"
             render={({ field }) => (
@@ -212,6 +212,7 @@ function Page() {
       <Button
         className="w-full"
         type="submit"
+        variant="secondary"
       >
         Submit
       </Button>

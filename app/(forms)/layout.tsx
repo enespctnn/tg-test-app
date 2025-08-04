@@ -10,7 +10,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div className="grow flex flex-col items-center gap-6">
       <FormNavigation />
 
-      <div className="bg-stone-200 px-10 py-8 rounded-xl shadow-lg shadow-stone-300 space-y-8 text-stone-700 max-w-full w-md">
+      <div className="bg-stone-200 px-10 py-8 rounded-xl shadow-sm shadow-stone-300 space-y-8 text-stone-700 max-w-full w-md">
         <h1 className="capitalize text-3xl">{pathname.replace('/', '').replace(/-/g, ' ')}</h1>
         {children}
       </div>

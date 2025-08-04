@@ -6,7 +6,7 @@ export const userAgreementSchema = yup.object({
 
   password: yup.string().min(6, 'Password must be at least 6 characters.').required('Password is required.'),
 
-  acceptedTerms: yup.boolean().oneOf([true], 'You must accept the terms and conditions.'),
+  acceptedTerms: yup.boolean().required().oneOf([true], 'You must accept the terms and conditions.'),
 
   plan: yup
     .mixed<TPlan | ''>()
@@ -18,3 +18,5 @@ export const userAgreementSchema = yup.object({
     .oneOf(['male', 'female'], 'Please select your gender.')
     .required('Gender is required.')
 });
+
+export type TUserAgreementSchema = yup.InferType<typeof userAgreementSchema>;
