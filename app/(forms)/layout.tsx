@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import FormNavigation from '@/app/(forms)/components/FormNavigation';
+import FormNavigation from '@/app/(forms)/_components/FormNavigation';
 
 function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

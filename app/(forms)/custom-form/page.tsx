@@ -2,8 +2,8 @@
 
 import { Eye, EyeOff } from 'lucide-react';
 import React from 'react';
-import { FormFieldEnum } from '@/app/(forms)/custom-form/enums/FormField.enum';
-import { handleCustomFormSubmit, validateField } from '@/app/(forms)/custom-form/utils/customForm.util';
+import { FormFieldEnum } from '@/app/(forms)/custom-form/_enums/FormField.enum';
+import { handleCustomFormSubmit, validateField } from '@/app/(forms)/custom-form/_utils/customForm.util';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

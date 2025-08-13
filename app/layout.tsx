@@ -25,8 +25,8 @@ export default function RootLayout({
       lang="en"
       style={{ colorScheme: 'dark' }}
     >
-      <body className={`${robotoSans.variable} flex min-w-full min-h-dvh font-sans antialiased`}>
-        <main className="relative grow flex flex-col pt-8 gap-4">
+      <body className={`${robotoSans.variable} flex w-full min-h-dvh font-sans antialiased overflow-x-hidden`}>
+        <main className="relative flex flex-col pt-6 px-10 gap-4 w-full">
           <Header />
           {children}
         </main>
