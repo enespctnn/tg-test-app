@@ -8,15 +8,24 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
-import { type TUserAgreementSchema, userAgreementSchema } from '@/schemas/userAgreement.schema';
+import {
+  type TUserAgreementSchema,
+  userAgreementSchema,
+} from '@/schemas/userAgreement.schema';
 
 function Page() {
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<TUserAgreementSchema>({
     mode: 'all',
     defaultValues: {
@@ -24,9 +33,9 @@ function Page() {
       password: '',
       plan: '',
       gender: '',
-      acceptedTerms: false
+      acceptedTerms: false,
     },
-    resolver: yupResolver(userAgreementSchema)
+    resolver: yupResolver(userAgreementSchema),
   });
 
   const [showPassword, setShowPassword] = React.useState(false);

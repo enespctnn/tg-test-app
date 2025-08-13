@@ -14,7 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname
+  baseDirectory: __dirname,
 });
 
 const ignores = ['.idea/**/*', '.next/**/*'];
@@ -24,8 +24,8 @@ const eslintConfig = [
   {
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.mjs'],
     rules: {
-      '@next/next/no-img-element': 'off'
-    }
+      '@next/next/no-img-element': 'off',
+    },
   },
   { ignores },
   {
@@ -35,8 +35,8 @@ const eslintConfig = [
       parserOptions: {
         tsconfigRootDir: __dirname,
         project: './tsconfig.json',
-        sourceType: 'module'
-      }
+        sourceType: 'module',
+      },
     },
     plugins: {
       'react-hooks': reactHooksPlugin,
@@ -44,17 +44,23 @@ const eslintConfig = [
       prettier,
       react,
       import: importPlugin,
-      'unused-imports': unusedImportsPlugin
+      'unused-imports': unusedImportsPlugin,
     },
     settings: {
       react: {
-        version: 'detect'
+        version: 'detect',
       },
       'import/resolver': {
         node: {
-          extensions: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.mjs']
-        }
-      }
+          extensions: [
+            '**/*.js',
+            '**/*.jsx',
+            '**/*.ts',
+            '**/*.tsx',
+            '**/*.mjs',
+          ],
+        },
+      },
     },
     rules: {
       'react/no-unused-prop-types': 'error',
@@ -68,8 +74,8 @@ const eslintConfig = [
         'always',
         {
           ignoreClassFields: true,
-          destructureInSignature: 'ignore'
-        }
+          destructureInSignature: 'ignore',
+        },
       ],
       'react/jsx-max-depth': ['warn', { max: 8 }],
       'react/jsx-key': [
@@ -77,8 +83,8 @@ const eslintConfig = [
         {
           checkFragmentShorthand: true,
           checkKeyMustBeforeSpread: true,
-          warnOnDuplicates: true
-        }
+          warnOnDuplicates: true,
+        },
       ],
       'react/jsx-curly-brace-presence': 'warn',
       'react/no-unescaped-entities': 'error',
@@ -95,8 +101,8 @@ const eslintConfig = [
         'error',
         {
           namedComponents: ['arrow-function', 'function-declaration'],
-          unnamedComponents: 'arrow-function'
-        }
+          unnamedComponents: 'arrow-function',
+        },
       ],
 
       'react-hooks/rules-of-hooks': 'error',
@@ -106,37 +112,30 @@ const eslintConfig = [
       'prettier/prettier': [
         'warn',
         {
-          endOfLine: 'lf',
-          arrowParens: 'always',
-          bracketSpacing: true,
-          jsxBracketSameLine: false,
-          printWidth: 120,
-          proseWrap: 'preserve',
-          requirePragma: false,
-          semi: true,
+          printWidth: 80,
           singleQuote: true,
           tabWidth: 2,
-          trailingComma: 'none',
+          trailingComma: 'es5',
           useTabs: false,
-          singleAttributePerLine: true
-        }
+          singleAttributePerLine: true,
+        },
       ],
       quotes: [
         'warn',
         'single',
         {
           allowTemplateLiterals: true,
-          avoidEscape: true
-        }
+          avoidEscape: true,
+        },
       ],
       'padding-line-between-statements': [
         'warn',
         {
           blankLine: 'always',
           prev: 'function',
-          next: '*'
+          next: '*',
         },
-        { blankLine: 'always', prev: '*', next: 'if' }
+        { blankLine: 'always', prev: '*', next: 'if' },
       ],
 
       '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -145,66 +144,72 @@ const eslintConfig = [
         'warn',
         {
           prefer: 'type-imports',
-          fixStyle: 'inline-type-imports'
-        }
+          fixStyle: 'inline-type-imports',
+        },
       ],
       '@typescript-eslint/consistent-type-exports': 'warn',
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-misused-promises': 'off',
-      '@typescript-eslint/no-unused-vars': ['error', { vars: 'all', args: 'after-used', argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { vars: 'all', args: 'after-used', argsIgnorePattern: '^_' },
+      ],
       '@typescript-eslint/no-use-before-define': [
         'error',
         {
           functions: false,
           classes: true,
-          ignoreTypeReferences: true
-        }
+          ignoreTypeReferences: true,
+        },
       ],
       '@typescript-eslint/naming-convention': [
         'error',
         {
           selector: 'default',
           format: ['PascalCase', 'camelCase'],
-          leadingUnderscore: 'allow'
+          leadingUnderscore: 'allow',
         },
         {
           selector: 'variable',
           format: null,
-          leadingUnderscore: 'allow'
+          leadingUnderscore: 'allow',
         },
         {
           selector: 'parameter',
           format: ['camelCase', 'snake_case', 'PascalCase'],
-          leadingUnderscore: 'allow'
+          leadingUnderscore: 'allow',
         },
         {
           selector: 'property',
           format: null,
-          leadingUnderscore: 'allow'
+          leadingUnderscore: 'allow',
         },
         {
           selector: 'typeLike',
           format: ['PascalCase'],
-          leadingUnderscore: 'forbid'
+          leadingUnderscore: 'forbid',
         },
         {
           selector: 'enumMember',
-          format: ['UPPER_CASE']
-        }
+          format: ['UPPER_CASE'],
+        },
       ],
 
       'prefer-const': [
         'error',
         {
           destructuring: 'all',
-          ignoreReadBeforeAssign: false
-        }
+          ignoreReadBeforeAssign: false,
+        },
       ],
       'prefer-template': 'warn',
       'operator-linebreak': 'off',
       'implicit-arrow-linebreak': 'off',
-      'max-len': ['warn', { code: 120, ignoreStrings: true, ignoreTemplateLiterals: true }],
+      'max-len': [
+        'warn',
+        { code: 80, ignoreStrings: true, ignoreTemplateLiterals: true },
+      ],
       'arrow-parens': 'off',
       'function-paren-newline': 'off',
       'no-confusing-arrow': 'off',
@@ -232,39 +237,47 @@ const eslintConfig = [
             'next.config.js',
             'sentry.{js,ts}',
             '**/middleware.{js,ts}',
-            'jest.setup.{js,ts}'
+            'jest.setup.{js,ts}',
           ],
 
           optionalDependencies: false,
-          peerDependencies: false
-        }
+          peerDependencies: false,
+        },
       ],
       'import/order': [
         'warn',
         {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'type',
+          ],
           pathGroups: [
             {
               pattern: '@components/**',
               group: 'internal',
-              position: 'after'
-            }
+              position: 'after',
+            },
           ],
-          alphabetize: { order: 'asc', caseInsensitive: true }
-        }
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
       ],
-      'unused-imports/no-unused-imports': 'error'
-    }
+      'unused-imports/no-unused-imports': 'error',
+    },
   },
   {
     files: ['app/interfaces.ts'],
     plugins: {
-      '@typescript-eslint': tsPlugin
+      '@typescript-eslint': tsPlugin,
     },
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off'
-    }
-  }
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
 ];
 
 export default eslintConfig;

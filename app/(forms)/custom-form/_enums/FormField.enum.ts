@@ -3,5 +3,5 @@ export enum FormFieldEnum {
   PASSWORD = 'password',
   PLAN = 'plan',
   GENDER = 'gender',
-  ACCEPTED_TERMS = 'acceptedTerms'
+  ACCEPTED_TERMS = 'acceptedTerms',
 }

@@ -11,14 +11,19 @@ export function handleCustomFormSubmit(
   if (!isFormValid) return;
 }
 
-export function validateField<T extends IFormFields>(field: keyof T, value: T[typeof field]): string {
+export function validateField<T extends IFormFields>(
+  field: keyof T,
+  value: T[typeof field]
+): string {
   if (field === 'email') {
     if (!value) return 'Email is required.';
-    else if (!/\S+@\S+\.\S+/.test(value as IFormFields['email'])) return 'Email is not valid!';
+    else if (!/\S+@\S+\.\S+/.test(value as IFormFields['email']))
+      return 'Email is not valid!';
     return '';
   } else if (field === 'password') {
     if (!value) return 'Password is required.';
-    else if ((value as IFormFields['password']).length < 6) return 'Password must be at least 6 characters.';
+    else if ((value as IFormFields['password']).length < 6)
+      return 'Password must be at least 6 characters.';
     return '';
   } else if (field === 'plan') {
     if (!value) return 'Please select a plan.';

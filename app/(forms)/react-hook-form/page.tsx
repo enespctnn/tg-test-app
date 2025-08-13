@@ -7,7 +7,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import type { IFormFields } from '@/app/(forms)/interface/formFields';
 
@@ -15,7 +21,7 @@ function Page() {
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<IFormFields>({
     mode: 'all',
     defaultValues: {
@@ -23,8 +29,8 @@ function Page() {
       password: '',
       plan: '',
       gender: null,
-      acceptedTerms: false
-    }
+      acceptedTerms: false,
+    },
   });
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -50,7 +56,7 @@ function Page() {
           )}
           rules={{
             required: 'Email is required.',
-            pattern: { value: /\S+@\S+\.\S+/, message: 'Email is not valid!' }
+            pattern: { value: /\S+@\S+\.\S+/, message: 'Email is not valid!' },
           }}
         />
 
@@ -94,7 +100,10 @@ function Page() {
         )}
         rules={{
           required: 'Password is required.',
-          minLength: { value: 6, message: 'Password must be at least 6 characters.' }
+          minLength: {
+            value: 6,
+            message: 'Password must be at least 6 characters.',
+          },
         }}
       />
 

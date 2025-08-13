@@ -28,7 +28,9 @@ function FormNavigation() {
       <li>
         <LinkButton
           href="/react-hook-form-with-yup"
-          variant={pathname === '/react-hook-form-with-yup' ? 'default' : 'secondary'}
+          variant={
+            pathname === '/react-hook-form-with-yup' ? 'default' : 'secondary'
+          }
         >
           React Hook Form With Yup
         </LinkButton>
