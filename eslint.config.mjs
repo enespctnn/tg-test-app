@@ -17,7 +17,7 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const ignores = ['.idea/**/*', '.next/**/*'];
+const ignores = ['.idea/**/*', '.next/**/*', 'lib/api/gen/**/*', 'lib/api/ssg'];
 
 const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
@@ -238,6 +238,7 @@ const eslintConfig = [
             'sentry.{js,ts}',
             '**/middleware.{js,ts}',
             'jest.setup.{js,ts}',
+            'orval.config.{js,ts}',
           ],
 
           optionalDependencies: false,
