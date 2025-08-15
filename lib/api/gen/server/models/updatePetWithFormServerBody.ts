@@ -6,9 +6,9 @@
  * OpenAPI spec version: 1.0.7
  */
 
-export type FindPetsByTagsParams = {
-  /**
-   * Tags to filter by
-   */
-  tags: string[];
+export type UpdatePetWithFormServerBody = {
+  /** Updated name of the pet */
+  name?: string;
+  /** Updated status of the pet */
+  status?: string;
 };

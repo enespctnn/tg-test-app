@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "eslint.config.mjs",
-    "scripts/generate-ssg-wrappers.cjs"
+    "scripts/generate-endpoints.cjs"
   ],
   "exclude": ["node_modules"]
 }

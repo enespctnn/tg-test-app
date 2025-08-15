@@ -6,9 +6,9 @@
  * OpenAPI spec version: 1.0.7
  */
 
-export type UploadFileBody = {
-  /** Additional data to pass to server */
-  additionalMetadata?: string;
-  /** file to upload */
-  file?: Blob;
+export type FindPetsByTagsServerParams = {
+  /**
+   * Tags to filter by
+   */
+  tags: string[];
 };

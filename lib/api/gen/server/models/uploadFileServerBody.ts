@@ -6,4 +6,9 @@
  * OpenAPI spec version: 1.0.7
  */
 
-export type GetInventory200 = { [key: string]: number };
+export type UploadFileServerBody = {
+  /** Additional data to pass to server */
+  additionalMetadata?: string;
+  /** file to upload */
+  file?: Blob;
+};

@@ -7,12 +7,12 @@
  */
 import type {
   ApiResponse,
-  FindPetsByStatusParams,
-  FindPetsByTagsParams,
+  FindPetsByStatusServerParams,
+  FindPetsByTagsServerParams,
   Pet,
   PetBody,
-  UpdatePetWithFormBody,
-  UploadFileBody,
+  UpdatePetWithFormServerBody,
+  UploadFileServerBody,
 } from '.././models';
 
 import { basicFetch } from '../../../mutators/basicFetch';
@@ -20,24 +20,27 @@ import { basicFetch } from '../../../mutators/basicFetch';
 /**
  * @summary uploads an image
  */
-export const getUploadFileUrl = (petId: number) => {
+export const getUploadFileServerUrl = (petId: number) => {
   return `https://petstore.swagger.io/v2/pet/${petId}/uploadImage`;
 };
 
-export const uploadFile = async (
+export const uploadFileServer = async (
   petId: number,
-  uploadFileBody: UploadFileBody,
+  uploadFileServerBody: UploadFileServerBody,
   options?: RequestInit
 ): Promise<ApiResponse> => {
   const formData = new FormData();
-  if (uploadFileBody.additionalMetadata !== undefined) {
-    formData.append(`additionalMetadata`, uploadFileBody.additionalMetadata);
+  if (uploadFileServerBody.additionalMetadata !== undefined) {
+    formData.append(
+      `additionalMetadata`,
+      uploadFileServerBody.additionalMetadata
+    );
   }
-  if (uploadFileBody.file !== undefined) {
-    formData.append(`file`, uploadFileBody.file);
+  if (uploadFileServerBody.file !== undefined) {
+    formData.append(`file`, uploadFileServerBody.file);
   }
 
-  return basicFetch<ApiResponse>(getUploadFileUrl(petId), {
+  return basicFetch<ApiResponse>(getUploadFileServerUrl(petId), {
     ...options,
     method: 'POST',
     body: formData,
@@ -47,15 +50,15 @@ export const uploadFile = async (
 /**
  * @summary Add a new pet to the store
  */
-export const getAddPetUrl = () => {
+export const getAddPetServerUrl = () => {
   return `https://petstore.swagger.io/v2/pet`;
 };
 
-export const addPet = async (
+export const addPetServer = async (
   petBody: PetBody,
   options?: RequestInit
 ): Promise<unknown> => {
-  return basicFetch<unknown>(getAddPetUrl(), {
+  return basicFetch<unknown>(getAddPetServerUrl(), {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
@@ -66,15 +69,15 @@ export const addPet = async (
 /**
  * @summary Update an existing pet
  */
-export const getUpdatePetUrl = () => {
+export const getUpdatePetServerUrl = () => {
   return `https://petstore.swagger.io/v2/pet`;
 };
 
-export const updatePet = async (
+export const updatePetServer = async (
   petBody: PetBody,
   options?: RequestInit
 ): Promise<unknown> => {
-  return basicFetch<unknown>(getUpdatePetUrl(), {
+  return basicFetch<unknown>(getUpdatePetServerUrl(), {
     ...options,
     method: 'PUT',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
@@ -86,7 +89,9 @@ export const updatePet = async (
  * Multiple status values can be provided with comma separated strings
  * @summary Finds Pets by status
  */
-export const getFindPetsByStatusUrl = (params: FindPetsByStatusParams) => {
+export const getFindPetsByStatusServerUrl = (
+  params: FindPetsByStatusServerParams
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -107,11 +112,11 @@ export const getFindPetsByStatusUrl = (params: FindPetsByStatusParams) => {
     : `https://petstore.swagger.io/v2/pet/findByStatus`;
 };
 
-export const findPetsByStatus = async (
-  params: FindPetsByStatusParams,
+export const findPetsByStatusServer = async (
+  params: FindPetsByStatusServerParams,
   options?: RequestInit
 ): Promise<Pet[]> => {
-  return basicFetch<Pet[]>(getFindPetsByStatusUrl(params), {
+  return basicFetch<Pet[]>(getFindPetsByStatusServerUrl(params), {
     ...options,
     method: 'GET',
   });
@@ -122,7 +127,9 @@ export const findPetsByStatus = async (
  * @deprecated
  * @summary Finds Pets by tags
  */
-export const getFindPetsByTagsUrl = (params: FindPetsByTagsParams) => {
+export const getFindPetsByTagsServerUrl = (
+  params: FindPetsByTagsServerParams
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -143,11 +150,11 @@ export const getFindPetsByTagsUrl = (params: FindPetsByTagsParams) => {
     : `https://petstore.swagger.io/v2/pet/findByTags`;
 };
 
-export const findPetsByTags = async (
-  params: FindPetsByTagsParams,
+export const findPetsByTagsServer = async (
+  params: FindPetsByTagsServerParams,
   options?: RequestInit
 ): Promise<Pet[]> => {
-  return basicFetch<Pet[]>(getFindPetsByTagsUrl(params), {
+  return basicFetch<Pet[]>(getFindPetsByTagsServerUrl(params), {
     ...options,
     method: 'GET',
   });
@@ -157,15 +164,15 @@ export const findPetsByTags = async (
  * Returns a single pet
  * @summary Find pet by ID
  */
-export const getGetPetByIdUrl = (petId: number) => {
+export const getGetPetByIdServerUrl = (petId: number) => {
   return `https://petstore.swagger.io/v2/pet/${petId}`;
 };
 
-export const getPetById = async (
+export const getPetByIdServer = async (
   petId: number,
   options?: RequestInit
 ): Promise<Pet> => {
-  return basicFetch<Pet>(getGetPetByIdUrl(petId), {
+  return basicFetch<Pet>(getGetPetByIdServerUrl(petId), {
     ...options,
     method: 'GET',
   });
@@ -174,24 +181,24 @@ export const getPetById = async (
 /**
  * @summary Updates a pet in the store with form data
  */
-export const getUpdatePetWithFormUrl = (petId: number) => {
+export const getUpdatePetWithFormServerUrl = (petId: number) => {
   return `https://petstore.swagger.io/v2/pet/${petId}`;
 };
 
-export const updatePetWithForm = async (
+export const updatePetWithFormServer = async (
   petId: number,
-  updatePetWithFormBody: UpdatePetWithFormBody,
+  updatePetWithFormServerBody: UpdatePetWithFormServerBody,
   options?: RequestInit
 ): Promise<unknown> => {
   const formUrlEncoded = new URLSearchParams();
-  if (updatePetWithFormBody.name !== undefined) {
-    formUrlEncoded.append(`name`, updatePetWithFormBody.name);
+  if (updatePetWithFormServerBody.name !== undefined) {
+    formUrlEncoded.append(`name`, updatePetWithFormServerBody.name);
   }
-  if (updatePetWithFormBody.status !== undefined) {
-    formUrlEncoded.append(`status`, updatePetWithFormBody.status);
+  if (updatePetWithFormServerBody.status !== undefined) {
+    formUrlEncoded.append(`status`, updatePetWithFormServerBody.status);
   }
 
-  return basicFetch<unknown>(getUpdatePetWithFormUrl(petId), {
+  return basicFetch<unknown>(getUpdatePetWithFormServerUrl(petId), {
     ...options,
     method: 'POST',
     headers: {
@@ -205,15 +212,15 @@ export const updatePetWithForm = async (
 /**
  * @summary Deletes a pet
  */
-export const getDeletePetUrl = (petId: number) => {
+export const getDeletePetServerUrl = (petId: number) => {
   return `https://petstore.swagger.io/v2/pet/${petId}`;
 };
 
-export const deletePet = async (
+export const deletePetServer = async (
   petId: number,
   options?: RequestInit
 ): Promise<unknown> => {
-  return basicFetch<unknown>(getDeletePetUrl(petId), {
+  return basicFetch<unknown>(getDeletePetServerUrl(petId), {
     ...options,
     method: 'DELETE',
   });

@@ -30,7 +30,7 @@ type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
 /**
  * @summary Creates list of users with given input array
  */
-export const createUsersWithListInput = (
+const createUsersWithListInput = (
   userArrayBody: UserArrayBody,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -118,7 +118,7 @@ export const useCreateUsersWithListInput = <TError = null, TContext = unknown>(
 /**
  * @summary Get user by user name
  */
-export const getUserByName = (
+const getUserByName = (
   username: string,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -272,7 +272,7 @@ export function useGetUserByName<
  * This can only be done by the logged in user.
  * @summary Updated user
  */
-export const updateUser = (
+const updateUser = (
   username: string,
   user: User,
   options: SecondParameter<typeof axiosInstance>
@@ -360,7 +360,7 @@ export const useUpdateUser = <TError = null | null, TContext = unknown>(
  * This can only be done by the logged in user.
  * @summary Delete user
  */
-export const deleteUser = (
+const deleteUser = (
   username: string,
   options: SecondParameter<typeof axiosInstance>
 ) => {
@@ -444,7 +444,7 @@ export const useDeleteUser = <TError = null | null, TContext = unknown>(
 /**
  * @summary Logs user into the system
  */
-export const loginUser = (
+const loginUser = (
   params: LoginUserParams,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -598,7 +598,7 @@ export function useLoginUser<
 /**
  * @summary Logs out current logged in user session
  */
-export const logoutUser = (
+const logoutUser = (
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
 ) => {
@@ -742,7 +742,7 @@ export function useLogoutUser<
 /**
  * @summary Creates list of users with given input array
  */
-export const createUsersWithArrayInput = (
+const createUsersWithArrayInput = (
   userArrayBody: UserArrayBody,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -831,7 +831,7 @@ export const useCreateUsersWithArrayInput = <TError = null, TContext = unknown>(
  * This can only be done by the logged in user.
  * @summary Create user
  */
-export const createUser = (
+const createUser = (
   user: User,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal

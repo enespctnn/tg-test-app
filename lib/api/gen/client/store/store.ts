@@ -31,7 +31,7 @@ type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
  * Returns a map of status codes to quantities
  * @summary Returns pet inventories by status
  */
-export const getInventory = (
+const getInventory = (
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
 ) => {
@@ -175,7 +175,7 @@ export function useGetInventory<
 /**
  * @summary Place an order for a pet
  */
-export const placeOrder = (
+const placeOrder = (
   order: Order,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -264,7 +264,7 @@ export const usePlaceOrder = <TError = null, TContext = unknown>(
  * For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions
  * @summary Find purchase order by ID
  */
-export const getOrderById = (
+const getOrderById = (
   orderId: number,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -418,7 +418,7 @@ export function useGetOrderById<
  * For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors
  * @summary Delete purchase order by ID
  */
-export const deleteOrder = (
+const deleteOrder = (
   orderId: number,
   options: SecondParameter<typeof axiosInstance>
 ) => {

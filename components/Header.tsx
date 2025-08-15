@@ -1,4 +1,4 @@
-import { DockIcon, Home } from 'lucide-react';
+import { DockIcon, DogIcon, Home } from 'lucide-react';
 import LinkButton from '@/components/LinkButton';
 
 function Header() {
@@ -14,6 +14,11 @@ function Header() {
           <li>
             <LinkButton href="/custom-form">
               <DockIcon /> Forms
+            </LinkButton>
+          </li>
+          <li>
+            <LinkButton href="/pet-store">
+              <DogIcon /> PetStore
             </LinkButton>
           </li>
         </ul>

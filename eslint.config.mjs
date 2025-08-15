@@ -192,7 +192,7 @@ const eslintConfig = [
         },
         {
           selector: 'enumMember',
-          format: ['UPPER_CASE'],
+          format: ['UPPER_CASE', 'PascalCase'],
         },
       ],
 

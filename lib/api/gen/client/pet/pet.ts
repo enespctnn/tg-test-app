@@ -38,7 +38,7 @@ type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
 /**
  * @summary uploads an image
  */
-export const uploadFile = (
+const uploadFile = (
   petId: number,
   uploadFileBody: UploadFileBody,
   options: SecondParameter<typeof axiosInstance>,
@@ -135,7 +135,7 @@ export const useUploadFile = <TError = unknown, TContext = unknown>(
 /**
  * @summary Add a new pet to the store
  */
-export const addPet = (
+const addPet = (
   petBody: PetBody,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -223,7 +223,7 @@ export const useAddPet = <TError = null, TContext = unknown>(
 /**
  * @summary Update an existing pet
  */
-export const updatePet = (
+const updatePet = (
   petBody: PetBody,
   options: SecondParameter<typeof axiosInstance>
 ) => {
@@ -310,7 +310,7 @@ export const useUpdatePet = <TError = null | null | null, TContext = unknown>(
  * Multiple status values can be provided with comma separated strings
  * @summary Finds Pets by status
  */
-export const findPetsByStatus = (
+const findPetsByStatus = (
   params: FindPetsByStatusParams,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -491,7 +491,7 @@ export function useFindPetsByStatus<
  * @deprecated
  * @summary Finds Pets by tags
  */
-export const findPetsByTags = (
+const findPetsByTags = (
   params: FindPetsByTagsParams,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -649,7 +649,7 @@ export function useFindPetsByTags<
  * Returns a single pet
  * @summary Find pet by ID
  */
-export const getPetById = (
+const getPetById = (
   petId: number,
   options: SecondParameter<typeof axiosInstance>,
   signal?: AbortSignal
@@ -802,7 +802,7 @@ export function useGetPetById<
 /**
  * @summary Updates a pet in the store with form data
  */
-export const updatePetWithForm = (
+const updatePetWithForm = (
   petId: number,
   updatePetWithFormBody: UpdatePetWithFormBody,
   options: SecondParameter<typeof axiosInstance>,
@@ -899,7 +899,7 @@ export const useUpdatePetWithForm = <TError = null, TContext = unknown>(
 /**
  * @summary Deletes a pet
  */
-export const deletePet = (
+const deletePet = (
   petId: number,
   options: SecondParameter<typeof axiosInstance>
 ) => {

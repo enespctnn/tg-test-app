@@ -21,18 +21,16 @@ export function GET(req: Request) {
   // Revalidate all op tags
   if (ops.length > 0) {
     for (const op of ops) {
-      const tag = `op:${op}`;
-      revalidateTag(tag);
-      revalidated.push(tag);
+      revalidateTag(op);
+      revalidated.push(op);
     }
   }
 
   // Revalidate all svc tags
   if (svcs.length > 0) {
     for (const svc of svcs) {
-      const svcTag = `svc:${svc}`;
-      revalidateTag(svcTag);
-      revalidated.push(svcTag);
+      revalidateTag(svc);
+      revalidated.push(svc);
     }
   }
 

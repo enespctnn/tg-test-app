@@ -1,13 +1,15 @@
 import axios, { type AxiosRequestConfig } from 'axios';
+import qs from 'qs';
 
 const instance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || process.env.API_BASE_URL,
-  withCredentials: false,
+  paramsSerializer: {
+    serialize: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
+  },
 });
 
 instance.interceptors.request.use((config) => {
-  // Example: auth/header setup goes here
-  // config.headers.set('Authorization', `Bearer ${token}`);
+  // add auth headers etc. here if needed
   return config;
 });
 

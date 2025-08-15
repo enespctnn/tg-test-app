@@ -6,13 +6,12 @@
  * OpenAPI spec version: 1.0.7
  */
 
-export type LoginUserParams = {
-  /**
-   * The user name for login
-   */
-  username: string;
-  /**
-   * The password for login in clear text
-   */
-  password: string;
-};
+export type FindPetsByStatusServerStatusItem =
+  (typeof FindPetsByStatusServerStatusItem)[keyof typeof FindPetsByStatusServerStatusItem];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const FindPetsByStatusServerStatusItem = {
+  available: 'available',
+  pending: 'pending',
+  sold: 'sold',
+} as const;
